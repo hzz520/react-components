@@ -1,0 +1,53 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true,
+      "arrowFunctions": true,
+      "classes": true,
+      "modules": true,
+      "defaultParams": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "window": true,
+    "document": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "no-undef": ["error"],
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "react"
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "import/prefer-default-export": "off",
+    "class-methods-use-this": "off",
+    "prefer-rest-params": "off",
+    "arrow-body-style": "warn"
+  },
+  "plugins": [
+    "react", 
+    "react-hooks",
+    "@typescript-eslint"
+  ]
+}

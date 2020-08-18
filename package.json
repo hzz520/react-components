@@ -1,0 +1,105 @@
+{
+  "name": "hzz-pad-h5-ui",
+  "version": "1.0.0-beta.2",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && rollup -c ./rollup.dist.js",
+    "start": "cross-env NODE_ENV=development rollup -c ./rollup.config.js --watch --silent",
+    "fix": "eslint --ext .tsx,.ts,.jsx,.js ./src --fix",
+    "prepublishOnly": "rollup -c ./rollup.es.js && rollup -c ./rollup.dist.js"
+  },
+  "files": [
+    "dist",
+    "es",
+    "package.json"
+  ],
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --ext .tsx,.ts,.jsx,.js ./src --fix",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "stylelint \"src/**/*.scss\" --syntax scss --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.9.1",
+    "cross-env": "^7.0.2",
+    "cssnano": "^4.1.10",
+    "cssnano-preset-advanced": "^4.0.7",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "fs-extra": "^9.0.1",
+    "glob": "^7.1.6",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "node-sass": "^4.14.1",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "postcss-viewport-units": "^0.1.6",
+    "postcss-write-svg": "^3.0.1",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.25.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-filesize": "^9.0.2",
+    "rollup-plugin-generate-html-template": "^1.7.0",
+    "rollup-plugin-img": "^1.1.0",
+    "rollup-plugin-livereload": "^1.3.0",
+    "rollup-plugin-multi-entry": "^2.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.3",
+    "rollup-plugin-postcss": "^3.1.5",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-serve": "^1.0.3",
+    "rollup-plugin-stylelint": "^1.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "rollup-plugin-ts": "^1.3.0",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0",
+    "typescript": "^3.9.7",
+    "yargs-parser": "^19.0.1"
+  }
+}
