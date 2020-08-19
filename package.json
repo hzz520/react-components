@@ -1,13 +1,13 @@
 {
-  "name": "hzz-pad-h5-ui",
-  "version": "1.0.0-beta.2",
+  "name": "@ali/pad-h5-ui",
+  "version": "1.0.0-beta.1",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && cross-env NODE_ENV=production rollup -c ./rollup.dist.js",
+    "build": "rimraf ./examples && cross-env NODE_ENV=production rollup -c ./rollup.es.js && cross-env NODE_ENV=production rollup -c ./rollup.dist.js",
     "start": "cross-env NODE_ENV=development rollup -c ./rollup.config.js --watch --silent",
     "fix": "eslint --ext .tsx,.ts,.jsx,.js ./src --fix && stylelint \"src/**/*.scss\" --syntax scss --fix",
-    "prepublishOnly": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && cross-env NODE_ENV=production rollup -c ./rollup.dist.js"
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist",
@@ -16,12 +16,10 @@
   ],
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --ext .tsx,.ts,.jsx,.js ./src --fix",
-      "git add"
+      "eslint --ext .tsx,.ts,.jsx,.js ./src --fix"
     ],
     "src/**/*.scss": [
-      "stylelint \"src/**/*.scss\" --syntax scss --fix",
-      "git add"
+      "stylelint \"src/**/*.scss\" --syntax scss --fix"
     ]
   },
   "husky": {
@@ -79,6 +77,7 @@
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2",
     "rollup": "^2.25.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-clear": "^2.0.7",

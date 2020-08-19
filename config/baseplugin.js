@@ -10,11 +10,6 @@ const stylelint = require('rollup-plugin-stylelint').default
 const env = process.env.NODE_ENV
 
 module.exports = [
-  stylelint(),
-  eslint({
-    include: ['./src/**/*.tsx', './src/**/*.ts', './src/**/*.jsx', './src/**/*.js'],
-    fix: true
-  }),
   Resolve({
     extensions: ['.tsx', '.ts', '.js', '.jsx', 'json', 'scss']
   }),
@@ -37,6 +32,14 @@ module.exports = [
       ]
     }
   }),
+  stylelint({
+    include: ['./src/**/*.scss'],
+    exclude: ['es', 'dist', 'examples']
+  }),
+  // eslint({
+  //   include: ['./src/**/*.tsx', './src/**/*.ts', './src/**/*.jsx', './src/**/*.js'],
+  //   fix: true
+  // }),
   Babel({
     exclude: 'node_modules/**',
     runtimeHelpers: true
