@@ -4,10 +4,10 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && rollup -c ./rollup.dist.js",
+    "build": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && cross-env NODE_ENV=production rollup -c ./rollup.dist.js",
     "start": "cross-env NODE_ENV=development rollup -c ./rollup.config.js --watch --silent",
     "fix": "eslint --ext .tsx,.ts,.jsx,.js ./src --fix && stylelint \"src/**/*.scss\" --syntax scss --fix",
-    "prepublishOnly": "rollup -c ./rollup.es.js && rollup -c ./rollup.dist.js"
+    "prepublishOnly": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && cross-env NODE_ENV=production rollup -c ./rollup.dist.js"
   },
   "files": [
     "dist",
