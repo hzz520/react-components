@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && rollup -c ./rollup.dist.js",
     "start": "cross-env NODE_ENV=development rollup -c ./rollup.config.js --watch --silent",
-    "fix": "eslint --ext .tsx,.ts,.jsx,.js ./src --fix",
+    "fix": "eslint --ext .tsx,.ts,.jsx,.js ./src --fix && stylelint \"src/**/*.scss\" --syntax scss --fix",
     "prepublishOnly": "rollup -c ./rollup.es.js && rollup -c ./rollup.dist.js"
   },
   "files": [
@@ -16,11 +16,11 @@
   ],
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --ext .tsx,.ts,.jsx,.js ./src --fix",
+      "eslint --ext .tsx,.ts,.jsx,.js ./src",
       "git add"
     ],
     "src/**/*.scss": [
-      "stylelint \"src/**/*.scss\" --syntax scss --fix",
+      "stylelint \"src/**/*.scss\" --syntax scss",
       "git add"
     ]
   },
