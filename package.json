@@ -7,7 +7,8 @@
     "build": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && cross-env NODE_ENV=production rollup -c ./rollup.dist.js",
     "start": "cross-env NODE_ENV=development rollup -c ./rollup.config.js --watch --silent",
     "fix": "eslint --ext .tsx,.ts,.jsx,.js ./src --fix && stylelint \"src/**/*.scss\" --syntax scss --fix",
-    "prepublishOnly": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && cross-env NODE_ENV=production rollup -c ./rollup.dist.js"
+    "prepublishOnly": "cross-env NODE_ENV=production rollup -c ./rollup.es.js && cross-env NODE_ENV=production rollup -c ./rollup.dist.js",
+    "lint-staged": "lint-staged"
   },
   "files": [
     "dist",
@@ -26,7 +27,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint-staged"
     }
   },
   "author": "",
